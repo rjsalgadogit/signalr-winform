@@ -49,6 +49,7 @@
             textBox1.PlaceholderText = "Message here...";
             textBox1.Size = new Size(617, 27);
             textBox1.TabIndex = 1;
+            textBox1.KeyUp += textBox1_KeyUp;
             // 
             // btnSendMessage
             // 

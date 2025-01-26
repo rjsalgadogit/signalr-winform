@@ -13,6 +13,9 @@ namespace SignalRWinform.Client
             InitializeComponent();
             InitializeConnection();
             StartConnection();
+
+
+            textBox1.KeyUp += textBox1_KeyUp;
         }
 
         private void InitializeConnection()
@@ -78,6 +81,28 @@ namespace SignalRWinform.Client
         private async void btnSendMessage_Click(object sender, EventArgs e)
         {
             await SendMessage(textBox1.Text);
+        }
+
+        private async void ProcessRFIDInput(string input)
+        {
+            if (!string.IsNullOrEmpty(input))
+            {
+                // Example: Check if the input matches an RFID format
+                //MessageBox.Show($"RFID Detected: {input}", "RFID Scanner");
+                await SendMessage(input);
+            }
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            // Check if the last character was entered
+            string inputText = textBox1.Text;
+
+            // If Enter key is pressed, process input
+            if (e.KeyCode == Keys.Enter)
+            {
+                ProcessRFIDInput(inputText);
+            }
         }
     }
 }
