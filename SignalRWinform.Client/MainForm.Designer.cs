@@ -28,12 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            richTextBox1 = new RichTextBox();
+            textBox1 = new TextBox();
+            btnSendMessage = new Button();
+            SuspendLayout();
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(12, 12);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
+            richTextBox1.Size = new Size(776, 393);
+            richTextBox1.TabIndex = 0;
+            richTextBox1.Text = "";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(12, 411);
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Message here...";
+            textBox1.Size = new Size(617, 27);
+            textBox1.TabIndex = 1;
+            // 
+            // btnSendMessage
+            // 
+            btnSendMessage.Location = new Point(645, 411);
+            btnSendMessage.Name = "btnSendMessage";
+            btnSendMessage.Size = new Size(143, 29);
+            btnSendMessage.TabIndex = 2;
+            btnSendMessage.Text = "Send Message";
+            btnSendMessage.UseVisualStyleBackColor = true;
+            btnSendMessage.Click += btnSendMessage_Click;
+            // 
+            // MainForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnSendMessage);
+            Controls.Add(textBox1);
+            Controls.Add(richTextBox1);
+            Name = "MainForm";
+            Text = "SignalR Winform Client";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private RichTextBox richTextBox1;
+        private TextBox textBox1;
+        private Button btnSendMessage;
     }
 }
